@@ -7,6 +7,7 @@ import App from './App';
 
 import { BrowserRouter } from "react-router-dom";
 import {UserProvider} from './Context/Context';
+import { SearchContext, SearchContextProvider } from './Context/SearchContext';
 
 
 
@@ -16,7 +17,10 @@ root.render(
     
     <BrowserRouter>
     <UserProvider>
+      <SearchContextProvider>
       <App />
+      </SearchContextProvider>
+     
       </UserProvider>
     </BrowserRouter>
      

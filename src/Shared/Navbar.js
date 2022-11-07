@@ -95,7 +95,7 @@ const Navbar = () => {
     <li><Link to="/about">About</Link></li>
     <li><Link to="/appointment">Appointment</Link></li>
     <li><Link to="/services">services</Link></li>
-    <li><Link to="/addparking"> Add Parking Services</Link></li>
+    <li><Link to="/Parking"> Add Parking Services</Link></li>
     <li><Link to="/contact">Contact Us</Link></li>
     {state ==null ?(
       <>
