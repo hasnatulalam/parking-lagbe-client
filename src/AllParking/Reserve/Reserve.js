@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
+
+
 import "./Reserve.css";
 import useFetch from "../../hooks/useFetch";
 import { useContext, useState } from "react";
@@ -11,6 +13,7 @@ import { SearchContext } from "../../Context/SearchContext";
 
 const Reserve = ({ setOpen, parkingSlotId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
+  
   const { data, loading, error } = useFetch(`http://localhost:9000/api/parking/allParkings/parkingSlot/${parkingSlotId}`);
   const { dates } = useContext(SearchContext);
 
@@ -66,6 +69,9 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
       navigate("/");
     } catch (err) {}
   };
+
+
+
   return (
     <div className="reserve">
       <div className="rContainer">
@@ -83,7 +89,13 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
               <div className="rMax">
                 Max people: <b>{item.maxPeople}</b>
               </div>
-              <div className="rPrice">{item.price}</div>
+               <div className="rPrice">{item.price}</div> 
+               <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "} 
+
+              
+nights) 
+
+
             </div>
             <div className="rSelectRooms">
               {item.slotNumbers.map((slotNumber) => (

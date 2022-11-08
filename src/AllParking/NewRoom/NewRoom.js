@@ -70,7 +70,7 @@ const NewRoom = () => {
                         <option key={parking._id} value={parking._id}>{parking.name}</option>
                       ))}
                 </select>
-              </div>
+              </div> 
               <button onClick={handleClick}>Send</button>
             </form>
           </div>

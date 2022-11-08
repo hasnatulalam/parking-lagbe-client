@@ -5,6 +5,7 @@ import { useState } from "react";
 import { hotelInputs } from "../../Pages/FormSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const NewHotel = () => {
   const [files, setFiles] = useState("");
@@ -26,7 +27,7 @@ const NewHotel = () => {
    
   };
   
-  console.log(files)
+  console.log(files) 
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -65,7 +66,7 @@ const NewHotel = () => {
         </div>
         <div className="bottom">
           <div className="left">
-            <img
+            <image
               src={
                 files
                   ? URL.createObjectURL(files[0])
@@ -107,7 +108,7 @@ const NewHotel = () => {
                   <option value={true}>Yes</option>
                 </select>
               </div>
-              <div className="selectRooms">
+               <div className="selectRooms">
                 <label>Rooms</label>
                 <select id="rooms" multiple onChange={handleSelect}>
                   {loading
@@ -119,8 +120,12 @@ const NewHotel = () => {
                         </option>
                       ))}
                 </select>
-              </div>
-              <button onClick={handleClick}>Send</button>
+              </div> 
+               <button onClick={handleClick}>Send</button> 
+           
+           
+             
+              
             </form>
           </div>
           </div>
