@@ -15,6 +15,8 @@ import Header from './ParkingSlot/ParkingHeader/Header';
 import Parking from './AllParking/Parking/Parking';
 import Home from './Pages/Home/Home';
 import List from "../src/ParkingSlot/ParkingList/List"
+import NewHotel from "./AllParking/newParking/NewParking";
+import NewRoom from "./AllParking/NewRoom/NewRoom";
 
 
 
@@ -35,6 +37,9 @@ function App() {
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/contact" element={<Contact/>}/>
+      <Route path="/addParking" element={<NewHotel/>}/>
+      <Route path="/addParkingSlot" element={<NewRoom/>}/>
+
   
       
 
