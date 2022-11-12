@@ -5,12 +5,13 @@ import { useState } from "react";
 import { hotelInputs } from "../../Pages/FormSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NewHotel = () => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [slots, setSlots] = useState([]);
+  const navigate = useNavigate();
 
   const { data, loading, error } = useFetch("http://localhost:9000/api/parkingSlot/allParkingSlot");
 
@@ -54,7 +55,9 @@ const NewHotel = () => {
       };
 
       await axios.post("http://localhost:9000/api/parking/addparking", newhotel);
+      
     } catch (err) {console.log(err)}
+    navigate("/newParkingSpace")
   };
   return (
     

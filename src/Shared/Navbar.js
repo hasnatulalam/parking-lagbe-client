@@ -23,6 +23,8 @@ const Navbar = () => {
 
  // let from = location.state.pathname || "/login";
   const [state,setState] =useContext(UserContext)
+ 
+ 
 
   /* const handleLogout=()=>{
     localStorage.removeItem("auth")
@@ -47,6 +49,7 @@ const Navbar = () => {
       
         localStorage.removeItem("name")
         localStorage.removeItem("user")
+        localStorage.removeItem("token")
         setState(null)
        navigate("/login")
      
@@ -96,20 +99,27 @@ const Navbar = () => {
     <li><Link to="/appointment">Appointment</Link></li>
     <li><Link to="/services">services</Link></li>
     <li><Link to="/addParking">Add  Parking services</Link></li>
-    <li><Link to="/addParkingSlot">Add  Parking slot</Link></li>
+   
 
     <li><Link to="/Parking"> Book Your parking</Link></li>
 
+
     <li><Link to="/contact">Contact Us</Link></li>
-    {state ==null ?(
-      <>
-      <li><Link to="/register">Register</Link></li>
-    <li><Link to="/login">Login</Link></li>
-      </>
-    ):(
+   
+ 
+    {state !==null  ?(
        <>
        <li> <Link onClick={handleLogout}>Logout</Link></li>
+       <li><Link to="/dashboard">DashBoard</Link></li>
        </>
+    )
+    :(
+     
+
+<>
+<li><Link to="/register">Register</Link></li>
+<li><Link to="/login">Login</Link></li>
+</>
     )}
     
    

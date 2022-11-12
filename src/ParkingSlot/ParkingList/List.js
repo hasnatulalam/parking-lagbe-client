@@ -1,6 +1,5 @@
 import "./list.css";
 
-
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
@@ -9,6 +8,7 @@ import SearchItem from "../searchItem.js"
 import useFetch from "../../hooks/useFetch";
 import Navbar from "../../Shared/Navbar"
 import Header from "../ParkingHeader/Header";
+
 
 const List = () => {
   const location = useLocation();
@@ -20,7 +20,7 @@ const List = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-     `http://localhost:9000/api/parking/allParkings?city=${destination}&min=${min || 10 }&max=${max || 3000}`
+      `http://localhost:9000/api/parking/allParkings?city=${destination}&min=${min || 100 }&max=${max || 3000}` 
     
   );
   
@@ -41,7 +41,7 @@ const List = () => {
             <label>Destination</label>
             <input placeholder={destination} type="text" />
           </div>
-          <div className="lsItem">
+            <div className="lsItem">
             <label>Check-in Date</label>
             <span onClick={() => setOpenDate(!openDate)}>{`${format(
               dates[0].startDate,
@@ -54,7 +54,7 @@ const List = () => {
                 ranges={dates}
               />
             )}
-          </div>
+          </div>  
           <div className="lsItem">
             <label>Options</label>
             <div className="lsOptions">

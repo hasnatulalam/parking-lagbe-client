@@ -2,6 +2,7 @@ import {
     faBed,
     faCalendarDays,
     faCar,
+    faParking,
     faPerson,
     faPlane,
     faTaxi,
@@ -31,9 +32,8 @@ import { UserContext } from "../../Context/Context";
     ]);
     const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
-      adult: 1,
-      children: 0,
-      room: 1,
+     
+      sloots: 1,
     });
   
     const navigate = useNavigate();
@@ -63,13 +63,13 @@ import { UserContext } from "../../Context/Context";
             type === "list" ? "headerContainer listMode" : "headerContainer"
           }
         >
-          <div className="headerList">
+           <div className="headerList">
             <div className="headerListItem active">
               <FontAwesomeIcon icon={faBed} />
               <span>Stays</span>
             </div>
             <div className="headerListItem">
-              <FontAwesomeIcon icon={faPlane} />
+              <FontAwesomeIcon icon={faPerson} />
               <span>Flights</span>
             </div>
             <div className="headerListItem">
@@ -84,7 +84,7 @@ import { UserContext } from "../../Context/Context";
               <FontAwesomeIcon icon={faTaxi} />
               <span>Airport taxis</span>
             </div>
-          </div>
+          </div> 
           {type !== "list" && (
             <>
               <h1 className="headerTitle">
@@ -97,10 +97,10 @@ import { UserContext } from "../../Context/Context";
              {/*  {!state && <button className="headerBtn">Sign in / Register</button>} */}
               <div className="headerSearch">
                 <div className="headerSearchItem">
-                  <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                  <FontAwesomeIcon icon={faCar} className="headerIcon" />
                   <input
                     type="text"
-                    placeholder="Where are you going?"
+                    placeholder="Where are you parking?"
                     className="headerSearchInput"
                     onChange={(e) => setDestination(e.target.value)}
                   />
@@ -126,71 +126,31 @@ import { UserContext } from "../../Context/Context";
                   )}
                 </div>
                 <div className="headerSearchItem">
-                  <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                  <FontAwesomeIcon icon={faParking} className="headerIcon" />
                   <span
                     onClick={() => setOpenOptions(!openOptions)}
                     className="headerSearchText"
-                  >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+                  >{` ${options.sloots} sloots`}</span>
                   {openOptions && (
                     <div className="options">
+                      
+                      
                       <div className="optionItem">
-                        <span className="optionText">Adult</span>
-                        <div className="optionCounter">
-                          <button
-                            disabled={options.adult <= 1}
-                            className="optionCounterButton"
-                            onClick={() => handleOption("adult", "d")}
-                          >
-                            -
-                          </button>
-                          <span className="optionCounterNumber">
-                            {options.adult}
-                          </span>
-                          <button
-                            className="optionCounterButton"
-                            onClick={() => handleOption("adult", "i")}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <div className="optionItem">
-                        <span className="optionText">Children</span>
-                        <div className="optionCounter">
-                          <button
-                            disabled={options.children <= 0}
-                            className="optionCounterButton"
-                            onClick={() => handleOption("children", "d")}
-                          >
-                            -
-                          </button>
-                          <span className="optionCounterNumber">
-                            {options.children}
-                          </span>
-                          <button
-                            className="optionCounterButton"
-                            onClick={() => handleOption("children", "i")}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <div className="optionItem">
-                        <span className="optionText">Room</span>
+                        <span className="optionText">Parking Slot</span>
                         <div className="optionCounter">
                           <button
                             disabled={options.room <= 1}
                             className="optionCounterButton"
-                            onClick={() => handleOption("room", "d")}
+                            onClick={() => handleOption("sloots", "d")}
                           >
                             -
                           </button>
                           <span className="optionCounterNumber">
-                            {options.room}
+                            {options.sloots}
                           </span>
                           <button
                             className="optionCounterButton"
-                            onClick={() => handleOption("room", "i")}
+                            onClick={() => handleOption("sloots", "i")}
                           >
                             +
                           </button>

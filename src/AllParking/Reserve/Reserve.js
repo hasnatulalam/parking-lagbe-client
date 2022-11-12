@@ -1,27 +1,44 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
+import { SearchContext } from "../../Context/SearchContext";
+
 
 
 import "./Reserve.css";
 import useFetch from "../../hooks/useFetch";
-import { useContext, useState } from "react";
+import { useContext,  useState } from "react";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { SearchContext } from "../../Context/SearchContext";
+
+
+
 
 const Reserve = ({ setOpen, parkingSlotId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
+ 
+  
   
   const { data, loading, error } = useFetch(`http://localhost:9000/api/parking/allParkings/parkingSlot/${parkingSlotId}`);
-  const { dates } = useContext(SearchContext);
+  const { dates,options } = useContext(SearchContext);
+
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    function dayDifference(date1, date2) {
+      const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+      return diffDays;
+    }
+  
+    const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
 
     const date = new Date(start.getTime());
+
+    
 
     const dates = [];
 
@@ -43,6 +60,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
     return !isFound;
   };
 
+
   const handleSelect = (e) => {
     const checked = e.target.checked;
     const value = e.target.value;
@@ -61,63 +79,77 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
         selectedRooms.map((parkingSlotId) => {
           const res = axios.put(`http://localhost:9000/api/parkingSlot/availability/${parkingSlotId}`, {
             dates: alldates,
+           
           });
           return res.data;
         })
       );
       setOpen(false);
-      navigate("/");
+      navigate("/pay");
     } catch (err) {}
   };
 
 
 
+
+
+
   return (
+   
+    
     <div className="reserve">
-      <div className="rContainer">
-        <FontAwesomeIcon
-          icon={faCircleXmark}
-          className="rClose"
-          onClick={() => setOpen(false)}
-        />
-        <span>Select your rooms:</span>
-        {data.map((item) => (
-          <div className="rItem" key={item._id}>
-            <div className="rItemInfo">
-              <div className="rTitle">{item.title}</div>
-              <div className="rDesc">{item.desc}</div>
-              <div className="rMax">
-                Max people: <b>{item.maxPeople}</b>
-              </div>
-               <div className="rPrice">{item.price}</div> 
-               <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "} 
-
-              
-nights) 
-
-
+    <div className="rContainer">
+      <FontAwesomeIcon
+        icon={faCircleXmark}
+        className="rClose"
+        onClick={() => setOpen(false)}
+      />
+      <span>Select your Parking SLot:</span>
+      {data.map((item) => (
+        <div className="rItem" key={item._id}>
+          <div className="rItemInfo">
+            <div className="rTitle">{item.title}</div>
+            <div className="rDesc">{item.desc}</div>
+            
+            <div className="rMax">
+            Max people: <b>{item.maxPeople}</b>
             </div>
-            <div className="rSelectRooms">
-              {item.slotNumbers.map((slotNumber) => (
-                <div className="room">
-                  <label>{slotNumber.number}</label>
-                  <input
-                    type="checkbox"
-                    value={slotNumber._id}
-                    onChange={handleSelect}
-                    disabled={!isAvailable(slotNumber)}
-                  />
-                </div>
-              ))}
-            </div>
+             <div className="rPrice">${days *item.price}</div> 
+
+          
+           
+
+            
+
+
+
           </div>
-        ))}
-        <button onClick={handleClick} className="rButton">
-          Reserve Now!
-        </button>
-      </div>
+          <div className="rSelectRooms">
+            {item.slotNumbers.map((slotNumber) => (
+              <div className="room">
+                <label>{slotNumber.number}</label>
+               
+                <input
+                  type="checkbox"
+                  value={slotNumber._id}
+                  onChange={handleSelect}
+                  disabled={!isAvailable(slotNumber)}
+                />
+              </div>
+            ))}
+          
+          </div>
+        </div>
+      ))}
+       <button onClick={handleClick}className="rButton"> 
+
+        Reserve Now!
+      </button> 
+     
     </div>
-  );
+  </div>
+  
+    );
 };
 
 export default Reserve;

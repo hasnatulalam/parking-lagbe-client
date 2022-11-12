@@ -25,6 +25,7 @@ const NewRoom = () => {
     } catch (err) {
       console.log(err);
     }
+    
   };
 
   console.log(info)

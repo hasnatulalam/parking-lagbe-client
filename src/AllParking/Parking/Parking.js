@@ -66,7 +66,7 @@ const Parking = () => {
   };
   return (
     <div>
-      <Navbar />
+      
       <Header type="list" />
       {loading ? (
         "loading"
@@ -99,7 +99,7 @@ const Parking = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+          
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -136,7 +136,7 @@ const Parking = () => {
                   excellent location score of 9.8!
                 </span>
                 <h2>
-                 <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "} 
+                 <b>${days * data.cheapestPrice * options.sloots}</b> ({days}{" "} 
 
               
                   nights) 

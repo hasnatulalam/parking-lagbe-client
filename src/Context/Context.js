@@ -3,7 +3,7 @@ import {reducer,initialState} from "../Reducer/useReducer";
   const UserContext = createContext();
   const UserProvider = ({ children }) => {
   const [state,setState]=useState({
-    isUser:{},token:""
+    isUser:{},token:"",
   })
   useEffect(()=>{
     setState(JSON.parse(window.localStorage.getItem("auth")))
