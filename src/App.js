@@ -20,6 +20,7 @@ import NewRoom from "./AllParking/NewRoom/NewRoom";
 import Pay from "./AllParking/Pay/Pay";
 import Login from "../src/Pages/Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
+import AllUsers from "./AllParking/AllUsers/AllUsers";
 
 
 
@@ -52,7 +53,7 @@ function App() {
         <Route path="/pay" element={<Pay/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/newParkingSpace" element={<NewRoom/>}/>
-        
+        <Route path="/addUser" element={<AllUsers/>}/>
      
       <Route path="/reset-password" element={<ForgetPassword/>}/>
       <Route path="/user/reset/:id/:token" element={<ChangePassword />} />

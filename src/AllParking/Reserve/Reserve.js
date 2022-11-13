@@ -70,6 +70,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
         : selectedRooms.filter((item) => item !== value)
     );
   };
+  
 
   const navigate = useNavigate();
 

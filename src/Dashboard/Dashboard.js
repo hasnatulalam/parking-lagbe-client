@@ -31,6 +31,9 @@ const Dashboard = () => {
               <li>
               <Link to="/newParkingSpace">New Parking Space</Link>
             </li>
+            <li>
+              <Link to="/addUser">Add User</Link>
+            </li>
               <li>
               <Link to="/dashboard/addDoctor">Add a Doctor</Link>
             </li>
