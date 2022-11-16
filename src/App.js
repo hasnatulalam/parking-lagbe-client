@@ -20,7 +20,15 @@ import NewRoom from "./AllParking/NewRoom/NewRoom";
 import Pay from "./AllParking/Pay/Pay";
 import Login from "../src/Pages/Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
-import AllUsers from "./AllParking/AllUsers/AllUsers";
+import AllUsers from "../src/AllParking/AllUsers/AllUsers"
+import Map from "../src/Map/Map"
+
+import { AdUnits } from "@mui/icons-material";
+import AllParkingSpace from "./AllParking/AllParkingSpace/AllParkingSpace";
+
+import AllParkingSlot from "./AllParking/AllParkingSlot/AllParkingSlot";
+import About from "./Pages/About";
+import Services from "./Pages/Services";
 
 
 
@@ -41,6 +49,8 @@ function App() {
       <Route path="/" element={<Home />}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/services" element={<Services/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/addParking" element={<NewHotel/>}/>
       
@@ -51,9 +61,12 @@ function App() {
       <Route path="/Parking" element={<List/>}/>
         <Route path="/Parking/:id" element={<Parking/>}/>
         <Route path="/pay" element={<Pay/>}/>
+        <Route path="/map" element={<Map/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/newParkingSpace" element={<NewRoom/>}/>
-        <Route path="/addUser" element={<AllUsers/>}/>
+        <Route path="/user" element={<AllUsers/>}/>
+        <Route path="/AllParking" element={<AllParkingSpace/>}/>
+        <Route path="/AllParkingSlot" element={<AllParkingSlot/>}/>
      
       <Route path="/reset-password" element={<ForgetPassword/>}/>
       <Route path="/user/reset/:id/:token" element={<ChangePassword />} />

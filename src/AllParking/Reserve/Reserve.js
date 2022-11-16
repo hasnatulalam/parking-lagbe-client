@@ -67,6 +67,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
     setSelectedRooms(
       checked
         ? [...selectedRooms, value]
+      
         : selectedRooms.filter((item) => item !== value)
     );
   };
@@ -113,9 +114,9 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
             <div className="rDesc">{item.desc}</div>
             
             <div className="rMax">
-            Max people: <b>{item.maxPeople}</b>
+            {/* Max people: <b>{item.maxPeople}</b> */}
             </div>
-             <div className="rPrice">${days *item.price}</div> 
+             <div className="rPrice">${days *item.price }</div> 
 
           
            

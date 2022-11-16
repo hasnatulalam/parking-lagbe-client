@@ -146,7 +146,7 @@ const Parking = () => {
 
 
                 </h2>
-                <button onClick={handleClick}>Reserve or Book Now!</button>
+                <button onClick={handleClick}>Reserve or Booking Parking Right Now!</button>
               </div>
             </div>
           </div>

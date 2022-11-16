@@ -27,7 +27,7 @@ export const userColumns = [
      
   ];
 
- /*   export  const userRows =[
+    export  const userRows =[
     { field: "_id", headerName: "ID", width: 250 },
     {
         field: "name",
@@ -40,10 +40,10 @@ export const userColumns = [
         headerName: "email",
         width: 100,
       },
-  ]  */
+  ]  
 
 
-   export const userRows = [
+   /* export const userRows = [
     {
       id: 1,
       username: "Jon Snow",
@@ -134,7 +134,7 @@ export const userColumns = [
       status: "active",
       transaction: "$120.00",
     },
-  ];
+  ]; */
    
   export const hotelColumns = [
     { field: "_id", headerName: "ID", width: 250 },

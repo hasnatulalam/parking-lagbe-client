@@ -32,13 +32,13 @@ const Dashboard = () => {
               <Link to="/newParkingSpace">New Parking Space</Link>
             </li>
             <li>
-              <Link to="/addUser">Add User</Link>
+              <Link to="/user">All User</Link>
             </li>
               <li>
-              <Link to="/dashboard/addDoctor">Add a Doctor</Link>
+              <Link to="/AllParking">ALL Parking </Link>
             </li>
               <li>
-              <Link to="/dashboard/manageDoctor">Manage Doctor</Link>
+              <Link to="/AllParkingSlot">All ParkingSlot</Link>
             </li>
             
             </>}

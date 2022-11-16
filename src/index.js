@@ -8,6 +8,7 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import {UserProvider} from './Context/Context';
 import { SearchContext, SearchContextProvider } from './Context/SearchContext';
+import { ChakraProvider, theme } from '@chakra-ui/react'
 
 
 
@@ -16,12 +17,20 @@ root.render(
   <React.StrictMode>
     
     <BrowserRouter>
+  
     <UserProvider>
-      <SearchContextProvider>
+    <SearchContextProvider>
+    
+   
+    
       <App />
+  
+  
+   
       </SearchContextProvider>
      
       </UserProvider>
+     
     </BrowserRouter>
      
        

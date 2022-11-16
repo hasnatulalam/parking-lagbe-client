@@ -96,28 +96,28 @@ const Navbar = () => {
         
     <li><Link to="/">Home</Link></li>
     <li><Link to="/about">About</Link></li>
-    <li><Link to="/appointment">Appointment</Link></li>
-    <li><Link to="/services">services</Link></li>
+    <li><Link to="/map">Map</Link></li>
+  
     <li><Link to="/addParking">Add  Parking services</Link></li>
    
 
-    <li><Link to="/Parking"> Book Your parking</Link></li>
+    
 
 
     <li><Link to="/contact">Contact Us</Link></li>
-   
+    <li><Link to="/dashboard">DashBoard</Link></li>
  
     {state !==null  ?(
        <>
        <li> <Link onClick={handleLogout}>Logout</Link></li>
-       <li><Link to="/dashboard">DashBoard</Link></li>
+       
        </>
     )
     :(
      
 
 <>
-<li><Link to="/register">Register</Link></li>
+
 <li><Link to="/login">Login</Link></li>
 </>
     )}
@@ -158,7 +158,7 @@ const Navbar = () => {
            
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">Parking Lagbe</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
