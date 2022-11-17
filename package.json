@@ -20,6 +20,7 @@
     "cloudinary": "^1.32.0",
     "daisyui": "^2.31.0",
     "date-fns": "^2.29.3",
+    "framer-motion": "^7.6.7",
     "install": "^0.13.0",
     "npm": "^9.1.1",
     "react": "^18.2.0",
