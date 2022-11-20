@@ -9,6 +9,7 @@ import Banner from "../Banner";
 import Contact from "../Contact";
 import Services from "../Services";
 import "./home.css";
+import Review from "./ReviewSection/Review";
 
 const Home = () => {
   return (
@@ -27,7 +28,7 @@ const Home = () => {
       </div>
       
         <About></About>
-        
+        <Review></Review>
         <Contact></Contact>
         <Footer></Footer>
     </div>

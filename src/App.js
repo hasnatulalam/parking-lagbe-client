@@ -63,6 +63,7 @@ function App() {
         <Route path="/Parking/:id" element={<Parking/>}/>
         <Route path="/pay" element={<Pay/>}/>
        {/*  <Route path="/map" element={<Map/>}/> */}
+            <Route path="/review" element={<CustomerReview/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/newParkingSpace" element={<NewRoom/>}/>
         <Route path="/user" element={<AllUsers/>}/>

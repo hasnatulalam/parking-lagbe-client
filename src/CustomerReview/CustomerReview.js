@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 
 
-import { UserContext } from "../Context/Context";
+
 
 
 
@@ -10,9 +10,9 @@ import axios from "axios";
 
 const  CustomerReview = () => {
  
-const [review,setReview]=useState()
+const [rating,setRating]=useState()
 const handleChange = (event) =>{
-  setReview(event.target.value);
+  setRating(event.target.value);
 }
 
 
@@ -23,7 +23,7 @@ const handleChange = (event) =>{
    
     
     try {
-      await axios.post("http://localhost:9000/api/review/addreview" ,review);
+      await axios.post("http://localhost:9000/api/review/addreview" ,{rating});
     } catch (err) {
       console.log(err);
     }
@@ -33,7 +33,7 @@ const handleChange = (event) =>{
   return (
     <>
       <Container>
-       
+         <form onSubmit={handleSubmit} >
           <div className="col-12 col-lg-6 mx-auto">
             <div className="form-container py-5">
               
@@ -54,7 +54,7 @@ const handleChange = (event) =>{
                     <select
                       required
                       className="form-control shadow-none"
-                      value={review}
+                      value={rating}
                       onChange={handleChange}
                     >
                       <option value="1">1</option>
@@ -71,7 +71,7 @@ const handleChange = (event) =>{
                 </Row>
 
                 <div className="text-center">
-                  <Button onClick={handleSubmit}
+                  <Button 
                     type="submit"
                     className="px-4 py-2 fw-bold btn-light-green shadow-none"
                   >
@@ -82,7 +82,7 @@ const handleChange = (event) =>{
            
             </div>
           </div>
-       
+       </form>
       </Container>
     </>
   );
