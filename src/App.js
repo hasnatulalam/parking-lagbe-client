@@ -29,6 +29,7 @@ import AllParkingSpace from "./AllParking/AllParkingSpace/AllParkingSpace";
 import AllParkingSlot from "./AllParking/AllParkingSlot/AllParkingSlot";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
+import CustomerReview from "./CustomerReview/CustomerReview";
 
 
 
@@ -61,10 +62,11 @@ function App() {
       <Route path="/Parking" element={<List/>}/>
         <Route path="/Parking/:id" element={<Parking/>}/>
         <Route path="/pay" element={<Pay/>}/>
-        <Route path="/map" element={<Map/>}/>
+       {/*  <Route path="/map" element={<Map/>}/> */}
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/newParkingSpace" element={<NewRoom/>}/>
         <Route path="/user" element={<AllUsers/>}/>
+        <Route path="/review" element={<CustomerReview/>}/>
         <Route path="/AllParking" element={<AllParkingSpace/>}/>
         <Route path="/AllParkingSlot" element={<AllParkingSlot/>}/>
      

@@ -2,7 +2,8 @@ import React, { createContext, useReducer,useState,useEffect } from "react";
 import {reducer,initialState} from "../Reducer/useReducer";
   const UserContext = createContext();
   const UserProvider = ({ children }) => {
-  const [state,setState]=useState({
+   
+  const [ state,setState]=useState({
     isUser:{},token:"",
   })
   useEffect(()=>{

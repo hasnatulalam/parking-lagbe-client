@@ -1,9 +1,15 @@
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+
 import { UserContext } from '../Context/Context';
 
 const Dashboard = () => {
     const [state,setState]= useContext(UserContext)
+    const {isUser} =useContext(UserContext)
+    
+   
+
+    
      
     return (
         <div className="drawer drawer-mobile">
@@ -18,6 +24,7 @@ const Dashboard = () => {
           <label for="dashboard-sidebar" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
+            {state !== null  && <>
             <li>
               <Link to="/dashboard">My Appointment</Link>
             </li>
@@ -27,7 +34,9 @@ const Dashboard = () => {
             <li>
               <Link to="/dashboard/history">My History</Link>
             </li>
-            {state !== null && <>
+            </>
+            }
+            {state && state.isUser.isAdmin===true  &&   <>
               <li>
               <Link to="/newParkingSpace">New Parking Space</Link>
             </li>
@@ -37,7 +46,7 @@ const Dashboard = () => {
               <li>
               <Link to="/AllParking">ALL Parking </Link>
             </li>
-              <li>
+              <li>  
               <Link to="/AllParkingSlot">All ParkingSlot</Link>
             </li>
             

@@ -23,6 +23,7 @@ const Navbar = () => {
 
  // let from = location.state.pathname || "/login";
   const [state,setState] =useContext(UserContext)
+
  
  
 
@@ -38,6 +39,8 @@ const Navbar = () => {
   
   } */
 
+
+
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
@@ -50,7 +53,10 @@ const Navbar = () => {
         localStorage.removeItem("name")
         localStorage.removeItem("user")
         localStorage.removeItem("token")
-        setState(null)
+        localStorage.removeItem("chakra-ui-color-mode")
+ 
+
+        setState(null) 
        navigate("/login")
      
        
@@ -59,6 +65,8 @@ const Navbar = () => {
       alert(error.response.data.message);
     }
   };
+
+
 
 
 
@@ -94,7 +102,7 @@ const Navbar = () => {
   const menuItems = <>
   
         
-    <li><Link to="/">Home</Link></li>
+  <li><Link to="/">Home</Link></li>
     <li><Link to="/about">About</Link></li>
     <li><Link to="/map">Map</Link></li>
   
@@ -105,10 +113,11 @@ const Navbar = () => {
 
 
     <li><Link to="/contact">Contact Us</Link></li>
-    <li><Link to="/dashboard">DashBoard</Link></li>
+  
  
     {state !==null  ?(
        <>
+         <li><Link to="/dashboard">DashBoard</Link></li>
        <li> <Link onClick={handleLogout}>Logout</Link></li>
        
        </>

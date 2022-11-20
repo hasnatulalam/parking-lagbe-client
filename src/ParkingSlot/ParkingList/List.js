@@ -78,24 +78,8 @@ const List = () => {
                   className="lsOptionInput"
                 />
               </div>
-              <div className="lsOptionItem">
-                <span className="lsOptionText">Adult</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="lsOptionInput"
-                  placeholder={options.adult}
-                />
-              </div>
-              <div className="lsOptionItem">
-                <span className="lsOptionText">Children</span>
-                <input
-                  type="number"
-                  min={0}
-                  className="lsOptionInput"
-                  placeholder={options.children}
-                />
-              </div>
+            
+             
               <div className="lsOptionItem">
                 <span className="lsOptionText">Room</span>
                 <input

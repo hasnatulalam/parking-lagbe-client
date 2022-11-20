@@ -6,6 +6,8 @@ import { Button, Container, Form, Row } from "react-bootstrap";
 import "./Login.css"
 
 
+
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -15,6 +17,7 @@ const Login = () => {
     password: "",
   });
   const [state,setState]= useContext(UserContext)
+ 
   
     
 
@@ -29,6 +32,7 @@ const Login = () => {
       if (response.status === 200 && response.data.isAdmin === true) {
         localStorage.setItem("token", response.data.token);
         setState({isUser:response.data.isUser})
+     
         window.localStorage.setItem("auth",JSON.stringify(response.data.isUser))
        
         alert(response.data.message);
@@ -41,10 +45,17 @@ const Login = () => {
        
         navigate("/dashboard");
       }
-      else if(response.status === 200){
+      else {
         localStorage.setItem("token", response.data.token);
+        setState({isUser:response.data.isUser})
+        
+       
+        alert(response.data.message);
+        
       
-        navigate("/")
+     
+      
+        navigate("/dashboard")
       }
     
      
