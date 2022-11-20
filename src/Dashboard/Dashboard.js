@@ -24,7 +24,7 @@ const Dashboard = () => {
           <label for="dashboard-sidebar" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
-            {state !== null  && <>
+            {state.isUser.isAdmin !==true ?(   <>
             <li>
               <Link to="/dashboard">My Appointment</Link>
             </li>
@@ -35,8 +35,8 @@ const Dashboard = () => {
               <Link to="/dashboard/history">My History</Link>
             </li>
             </>
-            }
-            {state && state.isUser.isAdmin===true  &&   <>
+            ):(
+             <>
               <li>
               <Link to="/newParkingSpace">New Parking Space</Link>
             </li>
@@ -50,7 +50,8 @@ const Dashboard = () => {
               <Link to="/AllParkingSlot">All ParkingSlot</Link>
             </li>
             
-            </>}
+            </>
+            )}
           </ul>
         </div>
       </div>
