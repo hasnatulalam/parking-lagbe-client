@@ -49,7 +49,9 @@ const Dashboard = () => {
               <li>  
               <Link to="/AllParkingSlot">All ParkingSlot</Link>
             </li>
-            
+            <li>  
+              <Link to="/makeAdmin">Make Admin</Link>
+            </li>
             </>
             )}
           </ul>

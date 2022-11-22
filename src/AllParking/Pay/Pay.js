@@ -31,6 +31,7 @@ const Pay = () => {
               
               token={onToken}
               stripeKey={STRIPE_KEY}
+              
             >
               <Button>CHECKOUT NOW</Button>
             </StripeCheckout>

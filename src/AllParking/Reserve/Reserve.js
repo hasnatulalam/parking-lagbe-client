@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ setOpen, parkingSlotId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
+
  
   
   
@@ -134,6 +135,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
                 <input
                   type="checkbox"
                   value={slotNumber._id}
+         
                   onChange={handleSelect}
                   disabled={!isAvailable(slotNumber)}
                 />

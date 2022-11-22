@@ -30,6 +30,7 @@ import AllParkingSlot from "./AllParking/AllParkingSlot/AllParkingSlot";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
 import CustomerReview from "./CustomerReview/CustomerReview";
+import MakeAdmin from "./AllParking/MakeAdmin/MakeAdmin";
 
 
 
@@ -70,7 +71,7 @@ function App() {
         <Route path="/review" element={<CustomerReview/>}/>
         <Route path="/AllParking" element={<AllParkingSpace/>}/>
         <Route path="/AllParkingSlot" element={<AllParkingSlot/>}/>
-     
+        <Route path="/makeAdmin" element={<MakeAdmin/>}/>
       <Route path="/reset-password" element={<ForgetPassword/>}/>
       <Route path="/user/reset/:id/:token" element={<ChangePassword />} />
     
