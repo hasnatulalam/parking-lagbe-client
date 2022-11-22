@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Review from "./Review/Review";
+
+
+import Review from "./Review";
 import { Row } from "react-bootstrap";
 import './ReviewSection.css'
 
 
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+  const [collectreviews, setCollectReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/api/review/collectreview")
+    fetch("http://localhost:9000/api/review/collectreviews")
       .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, [reviews]);
+      .then((data) => setCollectReviews(data));
+  }, [collectreviews]);
   var settings = {
     dots: false,
     infinite: true,
@@ -70,11 +69,11 @@ const Reviews = () => {
          
         </p>
       </Row>
-      <Slider {...settings}>
-        {reviews?.map((review) => (
-          <Review key={review._id} review={review}></Review>
+
+        {collectreviews?.map((collectreview) => (
+          <Review key={collectreview._id} collectreview={collectreview}></Review>
         ))}
-      </Slider>
+    
     </div>
   </section>
   );

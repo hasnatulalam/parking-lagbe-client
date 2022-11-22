@@ -1,8 +1,17 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
-const Review = ({review}) => {
+
+const Review = ({collectreview}) => {
+ 
+
+ const {name,rating,price} =collectreview
+
+ 
+
+ 
   
 
    
@@ -15,9 +24,13 @@ const Review = ({review}) => {
               
             </div>
                   </div>
-                
-               
-                  <h3 className='text-center text-xl '><b>Ratings:</b> { review?.rating}</h3>
+
+                  <h3 className='text-center text-xl '><b>Price:</b> {name}</h3>
+                  <h3 className='text-center text-xl '><b>Price:</b> {price}</h3>
+                 
+               <h3 className='text-center text-xl '><b>Ratings:</b> {rating}</h3>
+            
+              
         </div>
       </div>
     </>
