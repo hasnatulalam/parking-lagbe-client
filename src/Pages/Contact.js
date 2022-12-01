@@ -6,8 +6,8 @@ import axios from "../Pages/Token/axiosInterceptor";
 
 const Contact=() =>{
  
-  
-  const [input, setInput] = useState({
+  const [mail,setMail] =useState('')
+  const [user, setUser] = useState({
     fullName: "",
     email: "",
     phone:"",
@@ -15,18 +15,21 @@ const Contact=() =>{
 
  });
 
+ const {fullName,email,phone,message} =user
+ const onInputChange = e =>{
+  setUser({...user,  [e.target.name]: e.target.value,})
+ }
+
   const  SendMessage = async (e) => {
-    const navigate = useNavigate();
     e.preventDefault();
     
     try {
-      const response = await axios.post("api/auth/contact", input);
-      if (response.status === 201) {
-        alert(response.data.message);
-        navigate("/login");
+      const res = await axios.post("api/auth/contact", user);
+      if (res) {
+        setMail(res.data);
       }
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response.data.msg);
     }
   };
 
@@ -39,8 +42,8 @@ const Contact=() =>{
          <div className="py-10">
          <div className="py-10 container mx-auto bg-green-50 shadow-lg rounded-xl">
            <h2 className="text-center text-green-700 text-3xl mb-4">Contact Us</h2>
-           <form
-             onSubmit={SendMessage}
+           <div
+             
              className="flex flex-col items-center space-y-2"
            >
              <div className="border-2 w-60 border-green-700 flex rounded-3xl">
@@ -52,13 +55,8 @@ const Contact=() =>{
                  name="fullName"
                  id="fullName"
                  placeholder="Your Name"
-                 value={input.fullName}
-                 onChange={(e) =>
-                   setInput({
-                     ...input,
-                     [e.target.name]: e.target.value,
-                   })
-                 }
+                 value={fullName}
+                 onChange={onInputChange}
                />
              </div>
               <div className="border-2 w-60 border-green-700 flex rounded-3xl">
@@ -70,13 +68,8 @@ const Contact=() =>{
                  name="email"
                  id="email"
                  placeholder="Your Email"
-                 value={input.email}
-                 onChange={(e) =>
-                   setInput({
-                     ...input,
-                     [e.target.name]: e.target.value,
-                   })
-                 }
+                 value={email}
+                 onChange={onInputChange}
                />
              </div>
              <div className="border-2 w-60 border-green-700 flex rounded-3xl">
@@ -88,18 +81,14 @@ const Contact=() =>{
                  name="phone"
                  id="phone"
                  placeholder="Your Phone Number"
-                 value={input.phone}
-                 onChange={(e) =>
-                   setInput({
-                     ...input,
-                     [e.target.name]: e.target.value,
-                   })
-                 }
+                 value={phone}
+                 onChange={onInputChange}
+                   
                />
              </div> 
              <div className="border-2 w-60 border-green-700 flex rounded-3xl">
               
-              <input
+              <textarea
               
                  required
                  
@@ -109,27 +98,22 @@ const Contact=() =>{
                  name="message"
                  id="message"
                  placeholder="Your Message"
-                 value={input.message}
-                 onChange={(e) =>
-                   setInput({
-                     ...input,
-                     [e.target.name]: e.target.value,
-                   })
-                 }
+                 value={message}
+                 onChange={onInputChange}
                />
             
               
              </div>
-   
+           
           
    
              <div className="flex items-center justify-center mt-5">
-               <button type="submit" className="mt-2 flex items-center cursor-pointer justify-center bg-green-600 rounded-full px-6 py-2 text-gray-50 tracking-widest font-semibold transition hover:bg-green-500 focus:ring focus:ring-offset-2 focus:ring-offset-green-500 focus:ring-opacity-70">
+               <button onClick={SendMessage}  className="mt-2 flex items-center cursor-pointer justify-center bg-green-600 rounded-full px-6 py-2 text-gray-50 tracking-widest font-semibold transition hover:bg-green-500 focus:ring focus:ring-offset-2 focus:ring-offset-green-500 focus:ring-opacity-70">
                  Contact Us
                  
                </button>
              </div>
-           </form>
+           </div>
            </div>
            </div>
     

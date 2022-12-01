@@ -67,7 +67,7 @@ const NewRoom = () => {
                   {loading
                     ? "loading"
                     : data &&
-                      data.map((parking) => (
+                      data?.map((parking) => (
                         <option key={parking._id} value={parking._id}>{parking.name}</option>
                       ))}
                 </select>

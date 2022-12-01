@@ -15,7 +15,7 @@ import Header from './ParkingSlot/ParkingHeader/Header';
 import Parking from './AllParking/Parking/Parking';
 import Home from './Pages/Home/Home';
 import List from "../src/ParkingSlot/ParkingList/List"
-import NewHotel from "./AllParking/newParking/NewParking";
+import NewParking from "./AllParking/NewParking/NewParking";
 import NewRoom from "./AllParking/NewRoom/NewRoom";
 import Pay from "./AllParking/Pay/Pay";
 import Login from "../src/Pages/Login/Login";
@@ -42,6 +42,7 @@ import MakeAdmin from "./AllParking/MakeAdmin/MakeAdmin";
 
 
 
+
 function App() {
   return (
     <div>
@@ -54,9 +55,9 @@ function App() {
       <Route path="/about" element={<About/>}/>
       <Route path="/services" element={<Services/>}/>
       <Route path="/contact" element={<Contact/>}/>
-      <Route path="/addParking" element={<NewHotel/>}/>
+       <Route path="/addParking" element={<NewParking/>}/> 
       
-
+     
   
       
 

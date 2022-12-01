@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 import { UserContext } from '../Context/Context';
 
-const Dashboard = () => {
+const AdminDashBoard = () => {
     const [state,setState]= useContext(UserContext)
     const {isUser} =useContext(UserContext)
     
@@ -27,30 +27,10 @@ const Dashboard = () => {
 
       
              
-            {state.isUser.role !=="Driver" ?(   <>
-            <li>
-              <Link to="/dashboard">My Appointment</Link>
-            </li>
-            <li>
-              <Link to="/review">My Review</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/history">My History</Link>
-            </li>
-            </>
-            ):(
-             <>
-             <li>
-              <Link to="/addParking">New Parking zone</Link>
-            </li>
+            {state.isUser.isAdmin ===true &&(   <>
+           
               <li>
               <Link to="/newParkingSpace">New Parking Space</Link>
-            </li>
-            <li>
-              <Link to="/review">My Review</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/history">My History</Link>
             </li>
             <li>
               <Link to="/user">All User</Link>
@@ -66,9 +46,6 @@ const Dashboard = () => {
             </li>
             </>
             )}
-
-
-
             
           </ul>
         </div>
@@ -76,4 +53,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default AdminDashBoard;

@@ -3,17 +3,24 @@ import axios from "../../Pages/Token/axiosInterceptor";
 import { useNavigate, Link } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
-  const [input, setInput] = useState({
+/*   const [input, setInput] = useState({
     name: "",
     email: "",
     password: "",
-  });
+   
+  }); */
+
+  const [name,setName] =useState()
+  const [email,setEmail] =useState()
+  const [password,setPassword] =useState()
+  const [role,setRole] =useState()
+  
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("api/auth/users/register", input);
+      const response = await axios.post("api/auth/users/register", {name,email,password,role});
       if (response.status === 201) {
         alert(response.data.message);
         navigate("/login");
@@ -42,13 +49,8 @@ const Register = () => {
               name="name"
               id="name"
               placeholder="Your Name"
-              value={input.name}
-              onChange={(e) =>
-                setInput({
-                  ...input,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="border-2 w-60 border-green-700 flex rounded-3xl">
@@ -60,13 +62,8 @@ const Register = () => {
               name="email"
               id="email"
               placeholder="Your Email"
-              value={input.email}
-              onChange={(e) =>
-                setInput({
-                  ...input,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="border-2 w-60 border-green-700 flex rounded-3xl">
@@ -78,16 +75,25 @@ const Register = () => {
               name="password"
               id="password"
               placeholder="Your Password"
-              value={input.password}
-              onChange={(e) =>
-                setInput({
-                  ...input,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={password}
+            onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+        <div className="border-2 w-60 border-green-700 flex rounded-3xl">
+        <select
+                      required
+                      className="bg-transparent px-4 py-1 outline-none w-full border-none rounded-3xl"
+                      value={role}
+              onChange={(e) => setRole(e.target.value)}
+                    >
+                      <option value="Driver">Driver</option>
+                      <option value="Owner">Owner</option>
+                      
+                     
+                    </select>
 
+        </div>
+          
        
 
           <div className="flex items-center justify-center mt-5">

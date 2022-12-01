@@ -7,7 +7,7 @@ import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const NewHotel = () => {
+const NewParking = () => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [slots, setSlots] = useState([]);
@@ -52,9 +52,9 @@ const NewHotel = () => {
         ...info,
         slots,
         photos: list,
-      };
+      }
 
-      await axios.post("http://localhost:9000/api/parking/addparking", newhotel);
+      await axios.post("http://localhost:9000/api/parking/addparking",newhotel );
       
     } catch (err) {console.log(err)}
     navigate("/newParkingSpace")
@@ -138,4 +138,4 @@ const NewHotel = () => {
   );
 };
 
-export default NewHotel;
+export default NewParking;

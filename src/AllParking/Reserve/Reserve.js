@@ -76,6 +76,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
 
   const navigate = useNavigate();
 
+  
   const handleClick = async () => {
     try {
       await Promise.all(

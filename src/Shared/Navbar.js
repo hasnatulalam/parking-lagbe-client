@@ -22,7 +22,7 @@ const Navbar = () => {
   //const location = useLocation();
 
  // let from = location.state.pathname || "/login";
-  const [state,setState] =useContext(UserContext)
+ 
 
  
  
@@ -39,7 +39,8 @@ const Navbar = () => {
   
   } */
 
-
+  const [state,setState]= useContext(UserContext)
+  const {isUser} =useContext(UserContext)
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -69,7 +70,7 @@ const Navbar = () => {
 
 
 
-
+ 
  
 
   
@@ -106,7 +107,7 @@ const Navbar = () => {
     <li><Link to="/about">About</Link></li>
     <li><Link to="/map">Map</Link></li>
   
-    <li><Link to="/addParking">Add  Parking services</Link></li>
+   
    
 
     
@@ -115,7 +116,7 @@ const Navbar = () => {
     <li><Link to="/contact">Contact Us</Link></li>
   
  
-    {state !==null  ?(
+    {state !==null   ?(
        <>
          <li><Link to="/dashboard">DashBoard</Link></li>
        <li> <Link onClick={handleLogout}>Logout</Link></li>
