@@ -1,16 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { SearchContext } from "../../Context/SearchContext";
+import { SearchContext } from "../../Context/SearchContext"
 
 
 
-import "./Reserve.css";
-import useFetch from "../../hooks/useFetch";
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react"
+import useFetch from "../../hooks/useFetch"
+import "./Reserve.css"
 
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -23,6 +23,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
   
   const { data, loading, error } = useFetch(`http://localhost:9000/api/parking/allParkings/parkingSlot/${parkingSlotId}`);
   const { dates,options } = useContext(SearchContext);
+  console.log(data)
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
     function dayDifference(date1, date2) {
@@ -31,7 +32,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
       return diffDays;
     }
   
-    const days = dayDifference(dates[0].endDate, dates[0].startDate);
+    const days = dayDifference(dates[0]?.endDate, dates[0]?.startDate);
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -51,7 +52,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
     return dates;
   };
 
-  const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
+  const alldates = getDatesInRange(dates[0]?.startDate, dates[0]?.endDate);
 
   const isAvailable = (slotNumber) => {
     const isFound = slotNumber.unavailableDates.some((date) =>
@@ -76,27 +77,20 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
 
   const navigate = useNavigate();
 
-  
   const handleClick = async () => {
     try {
       await Promise.all(
         selectedRooms.map((parkingSlotId) => {
           const res = axios.put(`http://localhost:9000/api/parkingSlot/availability/${parkingSlotId}`, {
             dates: alldates,
-           
           });
           return res.data;
         })
       );
       setOpen(false);
-      navigate("/pay");
+      navigate("/pay", {state: {amount: days * data[0]?.price}});
     } catch (err) {}
   };
-
-
-
-
-
 
   return (
    
@@ -118,14 +112,7 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
             <div className="rMax">
             {/* Max people: <b>{item.maxPeople}</b> */}
             </div>
-             <div className="rPrice">${days *item.price }</div> 
-
-          
-           
-
-            
-
-
+             <div className="rPrice">${days * item.price }</div> 
 
           </div>
           <div className="rSelectRooms">
@@ -147,7 +134,6 @@ const Reserve = ({ setOpen, parkingSlotId }) => {
         </div>
       ))}
        <button onClick={handleClick}className="rButton"> 
-
         Reserve Now!
       </button> 
      

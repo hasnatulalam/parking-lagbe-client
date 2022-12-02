@@ -17,7 +17,7 @@ import Home from './Pages/Home/Home';
 import List from "../src/ParkingSlot/ParkingList/List"
 import NewParking from "./AllParking/NewParking/NewParking";
 import NewRoom from "./AllParking/NewRoom/NewRoom";
-import Pay from "./AllParking/Pay/Pay";
+
 import Login from "../src/Pages/Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
 import AllUsers from "../src/AllParking/AllUsers/AllUsers"
@@ -31,6 +31,7 @@ import About from "./Pages/About";
 import Services from "./Pages/Services";
 import CustomerReview from "./CustomerReview/CustomerReview";
 import MakeAdmin from "./AllParking/MakeAdmin/MakeAdmin";
+import StripePayment from "./AllParking/Pay/StripePayment";
 
 
 
@@ -63,7 +64,7 @@ function App() {
 
       <Route path="/Parking" element={<List/>}/>
         <Route path="/Parking/:id" element={<Parking/>}/>
-        <Route path="/pay" element={<Pay/>}/>
+        <Route path="/pay" element={<StripePayment/>}/>
        {/*  <Route path="/map" element={<Map/>}/> */}
             <Route path="/review" element={<CustomerReview/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>

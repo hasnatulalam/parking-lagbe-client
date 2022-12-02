@@ -1,6 +1,6 @@
 import "./newRoom.css";
 
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+
 import { useState } from "react";
 import { roomInputs } from "../../Pages/FormSource";
 import useFetch from "../../hooks/useFetch";
@@ -28,7 +28,7 @@ const NewRoom = () => {
     
   };
 
-  console.log(info)
+
   return (
     <div className="new">
      

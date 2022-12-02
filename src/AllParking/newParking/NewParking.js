@@ -57,7 +57,7 @@ const NewParking = () => {
       await axios.post("http://localhost:9000/api/parking/addparking",newhotel );
       
     } catch (err) {console.log(err)}
-    navigate("/newParkingSpace")
+    
   };
   return (
     
