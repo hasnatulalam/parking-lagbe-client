@@ -27,7 +27,7 @@ const Dashboard = () => {
 
       
              
-            {state.isUser.role !=="Driver" ?(   <>
+            {state.isUser.role ==="Driver" &&(   <>
             <li>
               <Link to="/dashboard">My Appointment</Link>
             </li>
@@ -38,7 +38,8 @@ const Dashboard = () => {
               <Link to="/dashboard/history">My History</Link>
             </li>
             </>
-            ):(
+            )}
+             {state.isUser.role ==="Owner" &&(   
              <>
              <li>
               <Link to="/addParking">New Parking zone</Link>
@@ -49,6 +50,10 @@ const Dashboard = () => {
             <li>
               <Link to="/review">My Review</Link>
             </li>
+            </>
+             )}
+             {state.isUser.isAdmin ===true && state.isUser.role ==="Owner" &&(
+              <> 
             <li>
               <Link to="/dashboard/history">My History</Link>
             </li>

@@ -118,6 +118,8 @@ const Navbar = () => {
  
     {state !==null   ?(
        <>
+        
+         <li><Link>{state?.isUser.email}</Link></li>
          <li><Link to="/dashboard">DashBoard</Link></li>
        <li> <Link onClick={handleLogout}>Logout</Link></li>
        

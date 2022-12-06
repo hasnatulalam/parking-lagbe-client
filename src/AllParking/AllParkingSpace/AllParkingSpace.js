@@ -25,8 +25,8 @@ const AllParkingSpace = () => {
 
   const handleDelete = async (id) => {
       try {
-       await axios.delete(`http://localhost:9000/api/parking/delete/${id}`);
-      setList(list.filter((item) => item._id !== id));
+       await axios.delete(`http://localhost:9000/api/parking/AllParkings/delete/${id}`);
+       setList(list.filter((item) => item._id !== id)); 
       
     } catch (err) {}   
    

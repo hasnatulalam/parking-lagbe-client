@@ -25,10 +25,10 @@ const NewParking = () => {
       (option) => option.value
     );
     setSlots(value);
-   
+
   };
-  
-  console.log(files) 
+
+  console.log(files)
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -54,16 +54,16 @@ const NewParking = () => {
         photos: list,
       }
 
-      await axios.post("http://localhost:9000/api/parking/addparking",newhotel );
-      
-    } catch (err) {console.log(err)}
-    
+      await axios.post("http://localhost:9000/api/parking/addparking", newhotel);
+
+    } catch (err) { console.log(err) }
+
   };
   return (
-    
+
     <div className="new">
-  
-    <div className="newContainer">
+
+      <div className="newContainer">
         <div className="top">
           <h1>Add New Product</h1>
         </div>
@@ -111,30 +111,30 @@ const NewParking = () => {
                   <option value={true}>Yes</option>
                 </select>
               </div>
-               <div className="selectRooms">
+              <div className="selectRooms">
                 <label>Rooms</label>
                 <select id="rooms" multiple onChange={handleSelect}>
                   {loading
                     ? "loading"
                     : data &&
-                      data.map((slots) => (
-                        <option key={slots._id} value={slots._id}>
-                          {slots.title}
-                        </option>
-                      ))}
+                    data.map((slots) => (
+                      <option key={slots._id} value={slots._id}>
+                        {slots.title}
+                      </option>
+                    ))}
                 </select>
-              </div> 
-               <button onClick={handleClick}>Send</button> 
-           
-           
-             
-              
+              </div>
+              <button onClick={handleClick}>Send</button>
+
+
+
+
             </form>
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
     </div>
-    
+
   );
 };
 

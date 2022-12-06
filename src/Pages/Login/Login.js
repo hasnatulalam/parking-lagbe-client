@@ -29,7 +29,7 @@ const Login = () => {
        
      
    
-      if (response.status === 200 && response.data.isAdmin === true) {
+      if (response.status === 200 ) {
         localStorage.setItem("token", response.data.token);
         setState({isUser:response.data.isUser})
      
@@ -39,24 +39,9 @@ const Login = () => {
         
      
        
-       // localStorage.setItem("name", response.data.name);
-       // localStorage.setItem("email", response.data.email);
-      
        
-        navigate("/dashboard");
       }
-      else {
-        localStorage.setItem("token", response.data.token);
-        setState({isUser:response.data.isUser})
-        
-       
-        alert(response.data.message);
-        
       
-     
-      
-        navigate("/dashboard")
-      }
     
      
       
